@@ -45,4 +45,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    //reacion one to many
+    public function comments(){
+        return $this->hasMany('App\Models\Comment');
+    }
+
+    //relacion muchos a uno
+    public function role(){
+        return $this->belongsTo('App\Image','image_id');
+    }
 }
