@@ -4,17 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class comment extends Model
+class Comment extends Model
 {
-    protected $table = 'comments';
-
-    //relacion muchos a uno
+    // un cmentario pertenece a un usuario
     public function user(){
-        return $this->belongsTo('App\User','user_id');
+        return $this->belongsTo(User::class);
     }
 
-    //relacion muchos a uno
+    // un comentario pertnece a una imagen
     public function image(){
-        return $this->belongsTo('App\Image','image_id');
+        return $this->belongsTo(Image::class);
     }
+
 }

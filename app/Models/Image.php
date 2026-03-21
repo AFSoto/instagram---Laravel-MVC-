@@ -8,18 +8,18 @@ class Image extends Model
 {
     protected $table = 'images';
 
-    //reacion one to many
+    // Una imagen tiene muchos comentarios
     public function comments(){
-        return $this->hasMany('App\comment');
+        return $this->hasMany(Comment::class);
     }
 
-    //relacion one to many
-    public function likes(){
-        return $this->hasMany('App\like');
-    }
-
-    //relacion muchos a uno
+    //una imagen pertenece a un usuario
     public function user(){
-        return $this->belongsTo('App\User','user_id');
+        return $this->belongsTo(User::class);
+    }
+
+    //una imagen tiene muchos likes
+    public function likes(){
+        return $this->hasMany(Like::class);
     }
 }

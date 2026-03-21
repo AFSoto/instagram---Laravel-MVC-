@@ -48,11 +48,23 @@ class User extends Authenticatable
 
     //reacion one to many
     public function comments(){
-        return $this->hasMany('App\Models\Comment');
+        return $this->hasMany(Comment::class);
     }
 
     //relacion muchos a uno
     public function role(){
-        return $this->belongsTo('App\Image','image_id');
+        return $this->belongsTo(Role::class);
     }
+
+    //un usuario tiene muchos likes
+    public function likes(){
+        return $this->hasMany(Like::class);
+    }
+
+    // un uusario tiene muchas imagenes
+    public function images(){
+        return $this->hasMany(Image::class);
+    }
+
+    
 }
